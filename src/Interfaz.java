@@ -251,7 +251,22 @@ public class Interfaz extends JFrame {
               String nombreCaja = listClientesAtendidos.getSelectedValuesList().get(0);
 
               cajas.obtenerPorNombre(nombreCaja).establecerEstado("Desocupada");
-              listModel.removeElementAt(listClientes.getSelectedIndex())
+              listClientes.removeElementAt(listClientesAtendidos.getSelectedIndex());
+              while(true){
+              	if (personaDiscapacidad.obtenerTamaño() != 0){
+              		personaDiscapacidad.asignarCaja();
+              		break;
+              	}
+              	if(personaMayor.obtenerTamaño() != 0){
+              		personaMayor.asignarCaja();
+              		break;
+              	}
+              	if (mujerEmbarazada.obtenerTamaño() != 0){
+              		mujerEmbarazada.asignarCaja();
+              		break;
+              	}
+              	break;
+              }
             }
 
             else{
