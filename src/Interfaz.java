@@ -246,15 +246,18 @@ public class Interfaz extends JFrame {
   btLiberarCaja.addActionListener(new ActionListener() {
         public void actionPerformed(ActionEvent evento) {  
 
-        public void valueChanged(ListSelectionEvent e) {
-           if (listClientesAtendidos.getSelectedIndex()!=-1){
-            if (!e.getValueIsAdjusting()) {
-              System.out.println(listClientesAtendidos.getSelectedValuesList().get(0));
-}}}
 
+           if (listClientesAtendidos.getSelectedIndex()!= -1){
+              String nombreCaja = listClientesAtendidos.getSelectedValuesList().get(0);
 
+              cajas.obtenerPorNombre(nombreCaja).establecerEstado("Desocupada");
+              listModel.removeElementAt(listClientes.getSelectedIndex())
+            }
 
-  }});
+            else{
+            JOptionPane.showMessageDialog( null, "Seleccione la caja a Liberar","Error",JOptionPane.INFORMATION_MESSAGE );  
+            }
+}});
 
   btAgregarCajero.addActionListener(new ActionListener() {
         public void actionPerformed(ActionEvent evento) {  
@@ -310,11 +313,7 @@ public class Interfaz extends JFrame {
           if(combo.getSelectedItem() == "Cliente Regular"){
              clienteRegular.insertar("Cliente Regular",nombre.getText(),correo.getText());
           }
-       /**   System.out.println("discapacidad "+personaDiscapacidad.obtenerTamaño());
-          System.out.println("roco "+personaMayor.obtenerTamaño());  
-          System.out.println("madre "+mujerEmbarazada.obtenerTamaño());
-          System.out.println("juegavivo "+clienteCorporativo.obtenerTamaño()); 
-          System.out.println("pobre "+clienteRegular.obtenerTamaño()); */      
+    
           
           cajas.establecerActual();
           while(personaDiscapacidad.obtenerTamaño() != 0 && cajas.obtenerActual() != null){

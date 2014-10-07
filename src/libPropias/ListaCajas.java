@@ -81,19 +81,18 @@ public void  insertar(String estado,String nombre){
 
 }
 
+public Caja obtenerPorNombre(String nombre){
+  this.establecerActual();
+  while(this.actual != null){
+    if(this.actual.obtenerNombre() == nombre){
+      return this.actual;
+    }
+    else{
+       this.establecerActualSig();
+    }
+  }
+  throw new IllegalArgumentException("No encontrado"); 
 }
-//           cajas.establecerActual();
-//           while(clienteRegular.obtenerTamaño() != 0){
- //           for(int i = 0; i <cajas.obtenerTamaño();i++){
-//            if(cajas.obtenerActual().obtenerEstado() == "Desocupada"){
- //             clienteRegular.asignarCaja();
-  //            listClientes.addElement(cajas.obtenerActual().obtenerNombre()+ "atendido pobres");
-   //           cajas.obtenerActual().establecerEstado("Ocupada");
-    //          cajas.establecerActualSig();
-     //         break;
-      //      }
-       //     else{
-      //        cajas.establecerActualSig();
-       //     }
-       //   }
-        //  }      
+
+}
+   

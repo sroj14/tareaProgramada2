@@ -89,7 +89,6 @@ public Cliente asignarCaja(){
             Cliente temp = this.primerCliente;
             this.primerCliente = this.primerCliente.obtenerSiguiente();
             temp.establecerSiguiente(null);
-            System.out.println("llego aqui");
         }
         size--;
         return usuario;
