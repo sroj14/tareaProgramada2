@@ -1,4 +1,4 @@
-<project name="HelloWorld" basedir="." default="main">
+<project name="Interfaz" basedir="." default="main">
        <property name="lib.dir"     value="lib"/>
 
   	  <path id="classpath">
@@ -6,19 +6,19 @@
   	  </path>
 
     <property name="src.dir"     value="src"/>
-    <property name="javadoc.dir"     value="javadoc"/>
+    <property name="javadoc.dir" value="javadoc"/>
     <property name="build.dir"   value="build"/>
     <property name="classes.dir" value="${build.dir}/classes"/>
     <property name="jar.dir"     value="${build.dir}/jar"/>
 
-    <property name="main-class"  value="HelloWorld"/>
+    <property name="main-class"  value="Interfaz"/>
+    
+
+ 
 
 
 
-    <target name="clean">
-        <delete dir="${build.dir}"/>
-    </target>
-
+    
      <target name="compile">
         <mkdir dir="${classes.dir}"/> 
      
@@ -47,8 +47,9 @@
     <javadoc sourcepath="." destdir="${javadoc.dir}" packagenames="*" classpathref="classpath"/>
     </target> 
 
-    <target name="clean-build" depends="clean,jar"/>
 
-    <target name="main" depends="clean,run"/>
+  
+
+    <target name="main" depends="run"/>
 
 </project>
